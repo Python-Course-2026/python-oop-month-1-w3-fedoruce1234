@@ -20,8 +20,23 @@ class EventPlanner:
 
     def get_events_on_date(self, date):
         # ТВОЙ КОД ЗДЕСЬ
-        pass
+        result = []  # Создаем пустую коробку для названий
+
+        for event in self.events:  # Берем каждое событие по очереди
+
+            if event.date == date:  # Проверяем: "Это событие в нужную дату?"
+
+                result.append(event.title)  # Если да, кладем его название в коробку
+
+        return result  # Возвращаем коробку с названиями
+
 
     def get_total_participants(self):
+
         # ТВОЙ КОД ЗДЕСЬ
-        pass
+        total = 0  # Начинаем с нуля участников
+        for event in self.events:  # Берем каждое событие
+            total += event.participants  # Прибавляем участников этого события
+
+        return total  # Возвращаем общую сумму
+
