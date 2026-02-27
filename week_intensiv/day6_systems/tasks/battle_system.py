@@ -16,4 +16,22 @@ class Battle:
     """
     def fight(self, h1: Hero, h2: Hero):
         # ТВОЙ КОД ЗДЕСЬ
-        pass
+        # Проверяем, не мертв ли кто-то уже в начале
+        if h1.hp <= 0:
+            return h2.name
+        if h2.hp <= 0:
+            return h1.name
+
+        # Бой продолжается, пока оба живы
+        while h1.hp > 0 and h2.hp > 0:
+            # Сначала атакует h2 (второй герой)
+            h1.hp -= h2.atk
+
+            # Затем атакует h1 (первый герой)
+            h2.hp -= h1.atk
+
+        # Определяем победителя
+        if h1.hp > 0:
+            return h1.name
+        else:
+            return h2.name

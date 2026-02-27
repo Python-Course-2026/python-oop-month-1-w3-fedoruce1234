@@ -20,4 +20,10 @@ class Market:
        - Добавить item в список buyer.inventory.
     """
     def deal(self, buyer: Participant, seller: Participant, item: Item):
-        pass
+        # Проверяем, хватает ли денег у покупателя
+        if buyer.money < item.price:
+            raise ValueError("Недостаточно средств")
+
+        buyer.money -= item.price  # Списываем деньги у покупателя
+        seller.money += item.price  # Добавим  деньги продавцу
+        buyer.inventory.append(item)
