@@ -15,7 +15,19 @@ class Light(Device):
        "Свет выключен" если is_on False.
     """
     def __init__(self, brand, brightness):
-        pass
+
+        # Вызываем конструктор родителя для установки brand и is_on
+
+        super().__init__(brand)
+        # Сохраняем яркость
+        self.brightness = brightness
 
     def work(self):
-        pass
+
+        if self.is_on:
+
+            # Если включено - возвращаем информацию о яркости
+            return f"Свет включен, яркость: {self.brightness}%"
+        else:
+            # Если выключено
+            return "Свет выключен"
