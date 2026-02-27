@@ -11,3 +11,4 @@ class SecureAccount:
         if amt <= 0:
             raise ValueError("Deposit amount must be positive")
         self.__balance += amt
+
